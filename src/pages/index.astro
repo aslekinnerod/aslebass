@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("no-NO", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+---
+
+<BaseLayout title="Asle Bass">
+  <section>
+    <h1>Asle Bass</h1>
+    <p class="intro">
+      Utvikler basert i Norge. Interessert i web, gode verktøy og det å bygge
+      ting som varer.
+    </p>
+    <p class="muted">
+      Mer om meg på <a href="/about">om-siden</a>, eller hopp rett til
+      <a href="/blog">bloggen</a>.
+    </p>
+  </section>
+
+  {
+    posts.length > 0 && (
+      <section>
+        <h2>Siste innlegg</h2>
+        <ul class="post-list">
+          {posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.id}/`}>
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {fmt(post.data.pubDate)}
+                </time>
+                <h2>{post.data.title}</h2>
+                <p class="desc">{post.data.description}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</BaseLayout>

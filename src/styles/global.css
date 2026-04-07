@@ -1,0 +1,243 @@
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, "Iowan Old Style", "Apple Garamond", "Times New Roman", serif;
+
+  --color-bg: #fdfdfc;
+  --color-text: #1a1a1a;
+  --color-muted: #6b6b6b;
+  --color-rule: #e6e6e3;
+  --color-accent: #1a1a1a;
+  --color-link: #1a1a1a;
+  --color-link-hover: #6b6b6b;
+
+  --measure: 65ch;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  --radius: 4px;
+
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0f0f0f;
+    --color-text: #e9e9e7;
+    --color-muted: #8a8a85;
+    --color-rule: #262624;
+    --color-accent: #e9e9e7;
+    --color-link: #e9e9e7;
+    --color-link-hover: #8a8a85;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.wrapper {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md) var(--space-xl);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: var(--space-lg) 0 var(--space-sm);
+}
+
+h1 {
+  font-size: 1.875rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.375rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
+p {
+  margin: 0 0 var(--space-sm);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin: var(--space-lg) 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--color-rule);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+pre {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  background: var(--color-rule);
+  padding: var(--space-sm);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+blockquote {
+  margin: var(--space-md) 0;
+  padding-left: var(--space-md);
+  border-left: 2px solid var(--color-rule);
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+ul,
+ol {
+  padding-left: 1.25rem;
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.site-header a.brand {
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.0625rem;
+}
+
+.site-header nav {
+  display: flex;
+  gap: var(--space-md);
+  font-size: 0.9375rem;
+}
+
+.site-header nav a {
+  text-decoration: none;
+  color: var(--color-muted);
+}
+
+.site-header nav a:hover,
+.site-header nav a.active {
+  color: var(--color-text);
+}
+
+.site-footer {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-rule);
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list li {
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.post-list li:last-child {
+  border-bottom: none;
+}
+
+.post-list a {
+  text-decoration: none;
+  display: block;
+}
+
+.post-list h2 {
+  font-size: 1.125rem;
+  margin: 0 0 0.25rem;
+}
+
+.post-list time {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.post-list .desc {
+  margin: 0.35rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+}
+
+.post-meta {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  margin: 0 0 var(--space-lg);
+  font-variant-numeric: tabular-nums;
+}
+
+.intro {
+  font-size: 1.0625rem;
+}
