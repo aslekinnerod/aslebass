@@ -46,6 +46,10 @@ body {
 }
 
 body {
+  overflow-x: clip;
+}
+
+body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
@@ -242,9 +246,14 @@ ol {
   font-size: 1.0625rem;
 }
 
-.hero {
-  text-align: center;
-  margin-bottom: var(--space-xl);
+.logo-banner {
+  background: #000;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--space-lg);
 }
 
 .hero-logo {
@@ -252,24 +261,15 @@ ol {
   width: 100%;
   max-width: 420px;
   height: auto;
-  margin: 0 auto var(--space-lg);
-  border-radius: 12px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
-@media (prefers-color-scheme: dark) {
-  .hero-logo {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.5);
-  }
+.hero-text {
+  text-align: center;
+  margin-bottom: var(--space-xl);
 }
 
-.hero .intro {
-  max-width: 48ch;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero .muted {
+.hero-text .intro,
+.hero-text .muted {
   max-width: 48ch;
   margin-left: auto;
   margin-right: auto;
