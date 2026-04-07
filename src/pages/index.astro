@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import logo from "../assets/logo.png";
 
 const posts = (await getCollection("blog", ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
@@ -15,8 +17,8 @@ const fmt = (d: Date) =>
 ---
 
 <BaseLayout title="Asle Bass">
-  <section>
-    <h1>Asle Bass</h1>
+  <section class="hero">
+    <Image src={logo} alt="aslebass.no" width={480} class="hero-logo" />
     <p class="intro">
       Utvikler basert i Norge. Interessert i web, gode verktøy og det å bygge
       ting som varer.
