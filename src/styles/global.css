@@ -274,3 +274,22 @@ ol {
   margin-left: auto;
   margin-right: auto;
 }
+
+.personal-photo {
+  margin: var(--space-xl) auto 0;
+  max-width: 280px;
+  text-align: center;
+}
+
+.personal-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  .personal-photo img {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+}
